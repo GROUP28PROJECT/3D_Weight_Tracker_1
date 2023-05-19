@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:flutter/cupertino.dart';
 
 List<CameraDescription> cameras = [];
 
@@ -82,6 +83,7 @@ class _SecondPageState extends State<SecondPage> {
   String? _lastName;
   int? _age;
   double? _weight;
+  String? _gender;
 
   @override
   Widget build(BuildContext context) {
@@ -158,19 +160,10 @@ class _SecondPageState extends State<SecondPage> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                      Navigator.pushNamed(
-                        context,
-                        '/third',
-                        arguments: {
-                          'firstName': _firstName,
-                          'lastName': _lastName,
-                          'age': _age,
-                          'weight': _weight,
-                        },
-                      );
+                      Navigator.pushNamed(context, '/third');
                     }
                   },
-                  child: const Text('Register'),
+                  child: const Text('Scan'),
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
                     onPrimary: Colors.white,
